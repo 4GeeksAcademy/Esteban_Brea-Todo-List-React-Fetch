@@ -1,12 +1,121 @@
+body {
+  background-color: #f2efefc9;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+}
 
-/* 
+.img-light {
+  width: 100%;
+  max-width: 160px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.container {
+  max-width: 600px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.199);
+  position: relative;
+  padding: 0;
+  min-height: 300px;
+}
 
-*/
+.layer {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.199);
+  z-index: -1;
+}
+
+.layerOne {
+  top: 8px;
+  left: 4px;
+  right: 4px;
+}
+
+.layerTwo {
+  top: 4px;
+}
+
+.title {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 7rem;
+  font-weight: 100;
+  color: rgba(235, 216, 217, 0.67);
+  margin-bottom: 20px;
+}
+
+.todo-input-container {
+  width: 100%;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.todo-input {
+  width: 100%;
+  padding: 15px 50px;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 2px solid #b3a79f3c;
+  outline: none;
+  background-color: #f9f9f9;
+  color: rgba(0, 0, 0, 0.574);
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-task {
+  padding: 15px 50px;
+  background-color: #f9f9f9;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #b3a79f3c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  color: rgba(0, 0, 0, 0.704);
+  word-break: break-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+  position: relative;
+}
+
+.todo-task:hover,
+.todo-task:hover .btn-delete {
+  visibility: visible;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: rgba(198, 120, 24, 0.497);
+  cursor: pointer;
+  visibility: hidden;
+  position: absolute;
+  right: 15px;
+}
+
+.counter {
+  padding: 1px;
+  margin: 15px;
+  font-size: 0.8rem;
+  color: #868484;
+  text-align: left;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #999;
+  margin: 5px 0;
+}

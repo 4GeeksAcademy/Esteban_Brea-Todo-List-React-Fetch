@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+import TodoCounter from "./TodoCounter";
+import myImg from "../../img/klipartz.com.png";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const keyDownEvent = (e) =>
+    e.key === "Enter" && todo.trim() !== ""
+      ? (setTodos([...todos, todo]), setTodo("")) //setTodo("") restablece el valor de la variable todo a una cadena vacia
+      : null;
+
+  const removeTodo = (index) => {
+    setTodos(todos.filter((value, i) => i !== index));
+  };
+
+  return (
+    <>
+      <img src={myImg} className="img-light" />
+      <h1 className="title">todos</h1>
+      <div className="container">
+        <div className="layer layerOne"></div>
+        <div className="layer layerTwo"></div>
+        <TodoInput todo={todo} setTodo={setTodo} keyDownEvent={keyDownEvent} />
+        <TodoList todos={todos} removeTodo={removeTodo} />
+        <TodoCounter todos={todos} />
+      </div>
+    </>
+  );
 };
 
 export default Home;
